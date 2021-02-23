@@ -1,4 +1,4 @@
-DATABASE_URL = "postgres://wvzwethxsnghjz:0446fa1180f7cbb011f0157360c2f214ccc04cf0d62efa8f55ab19d0cc90841a@ec2-3-222-127-167.compute-1.amazonaws.com:5432/d4jfucrvpib42q"
+DATABASE_URL = "postgres://qiqwkzmfafcced:e108e5f63407578831d885d0675b711fe15a4a81de1efef2a7e6f33c91af5d30@ec2-3-87-180-131.compute-1.amazonaws.com:5432/delgjg32ugti9v"
 AUTH0_DOMAIN = 'fsnd-sarahalasfour.us.auth0.com'
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'capstone'
