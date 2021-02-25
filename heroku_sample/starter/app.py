@@ -44,7 +44,7 @@ def create_app(test_config=None):
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actor')
-    def delete_actor(actor_id):
+    def delete_actor(jwt, actor_id):
         try:
             actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
 
@@ -63,7 +63,7 @@ def create_app(test_config=None):
 
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
     @requires_auth('delete:movie')
-    def delete_movie(movie_id):
+    def delete_movie(jwt, movie_id):
         try:
             movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
 
@@ -224,6 +224,13 @@ def create_app(test_config=None):
             "error": 500,
             "message": "internet server error"
         }), 500
+
+    @app.errorhandler(AuthError)
+    def handle_auth_error(ex):
+        response = jsonify(ex.error)
+        response.status_code = ex.status_code
+        return response
+
 
     # @app.route('/')
     # def get_greeting():
